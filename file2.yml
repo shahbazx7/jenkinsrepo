@@ -1,0 +1,11 @@
+---
+- hosts: webservers
+  remote_user: root
+  vars:
+    http_port: 80
+    max_clients: 200
+  tasks:
+    - name: ensure apache is latest
+      yum: pkg=httpd state=latest
+    - name: runing
+      service: name=httpd state=started
